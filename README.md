@@ -1,7 +1,7 @@
 # TH-Store - Beauty & Cosmetics – Full Stack eCommerce Web Application + Admin Panel
 
 
-![TH-Store Image Banner](![image](https://github.com/user-attachments/assets/21497336-c6e1-40e5-8b94-bf3ac6f8830b)
+![TH-Store Image Banner](![image]https://res.cloudinary.com/dfmwnhbap/image/upload/v1727857701/olu6tel5ztfty5qapien.png)
 )
 
 Beauty & Cosmetics is a powerful and modern full stack eCommerce web application built using Next.js, Koa, MongoDB with Mongoose, Redux Toolkit, RTK Query, Stripe payment method, Bootstrap 5, and Sass. It includes a feature-rich admin panel for easy management and control of your online store.
