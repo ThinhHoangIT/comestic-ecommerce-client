@@ -157,13 +157,27 @@ export const authApi = apiSlice.injectEndpoints({
         try {
           const result = await queryFulfilled;
 
-          Cookies.set(
-            "userInfo",
-            JSON.stringify({
-              user: result.data.data,
-            }),
-            { expires: 0.5 }
-          );
+          const currentUserInfo = Cookies.get("userInfo")
+            ? JSON.parse(Cookies.get("userInfo"))
+            : {};
+
+          // Update only the allowed fields (name, email, phone, address, bio)
+          const updatedUserInfo = {
+            ...currentUserInfo,
+            user: {
+              ...currentUserInfo.user,
+              name: result.data.data.name,
+              email: result.data.data.email,
+              phone: result.data.data.phone,
+              address: result.data.data.address,
+              bio: result.data.data.bio,
+            },
+          };
+
+          // Set the updated userInfo back into Cookies
+          Cookies.set("userInfo", JSON.stringify(updatedUserInfo), {
+            expires: 0.5,
+          });
 
           // dispatch(
           //   userLoggedIn({
@@ -183,6 +197,7 @@ export const {
   useLoginUserMutation,
   useRegisterUserMutation,
   useConfirmEmailQuery,
+  useGetUserQuery,
   useResetPasswordMutation,
   useConfirmForgotPasswordMutation,
   useChangePasswordMutation,
