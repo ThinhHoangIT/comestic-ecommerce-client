@@ -18,7 +18,12 @@ import { useGetOfferCouponsQuery } from "@/redux/features/coupon/couponApi";
 
 const useCheckoutSubmit = () => {
   // offerCoupons
-  const { data: offerCoupons, isError, isLoading } = useGetOfferCouponsQuery();
+  const {
+    couponData: offerCoupons,
+    isError,
+    isLoading,
+  } = useGetOfferCouponsQuery();
+  const data = offerCoupons?.data;
   // addOrder
   const [saveOrder, {}] = useSaveOrderMutation();
   // createPaymentIntent
