@@ -65,7 +65,7 @@ const DetailsWrapper = ({
   return (
     <div className="tp-product-details-wrapper">
       <div className="tp-product-details-category">
-        <span>{categoryData.name}</span>
+        <span>{categoryData?.name}</span>
       </div>
       <h3 className="tp-product-details-title">{name}</h3>
 

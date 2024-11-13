@@ -25,7 +25,7 @@ const ProductDetailsPage = ({ query }) => {
     content = (
       <>
         <ProductDetailsBreadcrumb
-          category={product.categoryData.name}
+          category={product.categoryData?.name}
           title={product.name}
         />
         <ProductDetailsArea productItem={product} />

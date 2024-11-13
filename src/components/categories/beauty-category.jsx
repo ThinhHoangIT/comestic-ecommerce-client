@@ -33,11 +33,11 @@ const BeautyCategory = () => {
   if (!isLoading && isError) {
     content = <ErrorMsg msg="There was an error" />;
   }
-  if (!isLoading && !isError && categories?.result?.length === 0) {
+  if (!isLoading && !isError && categories?.data?.length === 0) {
     content = <ErrorMsg msg="No Category found!" />;
   }
-  if (!isLoading && !isError && categories?.result?.length > 0) {
-    const category_items = categories.result;
+  if (!isLoading && !isError && categories?.data?.length > 0) {
+    const category_items = categories?.data;
     content = category_items.map((item) => (
       <div key={item.id} className="col-lg-3 col-sm-6">
         <div className="tp-category-item-3 p-relative black-bg text-center z-index-1 fix mb-30">
@@ -49,17 +49,17 @@ const BeautyCategory = () => {
             <h3 className="tp-category-title-3">
               <a
                 className="cursor-pointer"
-                onClick={() => handleCategoryRoute(item.parent)}
+                onClick={() => handleCategoryRoute(item.name)}
               >
-                {item.parent}
+                {item.name}
               </a>
             </h3>
             <span className="tp-categroy-ammount-3">
-              {item.products.length} Products
+              {item.productCount} Products
             </span>
             <div className="tp-category-btn-3">
               <a
-                onClick={() => handleCategoryRoute(item.parent)}
+                onClick={() => handleCategoryRoute(item.name)}
                 className="cursor-pointer tp-link-btn tp-link-btn-2"
               >
                 View Now

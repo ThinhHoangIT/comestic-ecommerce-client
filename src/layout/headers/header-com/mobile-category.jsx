@@ -57,11 +57,11 @@ const MobileCategory = ({ isCategoryActive, categoryType }) => {
   if (!isLoading && isError) {
     content = <ErrorMsg msg="There was an error" />;
   }
-  if (!isLoading && !isError && categories?.result?.length === 0) {
+  if (!isLoading && !isError && categories?.data?.length === 0) {
     content = <ErrorMsg msg="No Category found!" />;
   }
-  if (!isLoading && !isError && categories?.result?.length > 0) {
-    const category_items = categories.result;
+  if (!isLoading && !isError && categories?.data?.length > 0) {
+    const category_items = categories?.data;
     content = category_items.map((item) => (
       <li className="has-dropdown" key={item.id}>
         <a className="cursor-pointer">

@@ -160,17 +160,8 @@ const Footer = ({
           <div className="container">
             <div className="tp-footer-bottom-wrapper">
               <div className="row align-items-center">
-                <div className="col-md-6">
-                  <div className="tp-footer-copyright">
-                    <p>© {new Date().getFullYear()} All Rights Reserved</p>
-                  </div>
-                </div>
-                <div className="col-md-6">
-                  <div className="tp-footer-payment text-md-end">
-                    <p>
-                      <Image src={pay} alt="pay" />
-                    </p>
-                  </div>
+                <div className="tp-footer-copyright">
+                  <p>© {new Date().getFullYear()} All Rights Reserved</p>
                 </div>
               </div>
             </div>

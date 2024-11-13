@@ -105,7 +105,7 @@ const ShopPage = ({ query }) => {
     if (query.category) {
       product_items = product_items.filter(
         (p) =>
-          p.categoryData.name
+          p?.categoryData?.name
             .toLowerCase()
             .replace("&", "")
             .split(" ")
@@ -143,7 +143,7 @@ const ShopPage = ({ query }) => {
     if (query.brand) {
       product_items = product_items.filter(
         (p) =>
-          p.brandData.name
+          p?.brandData.name
             .toLowerCase()
             .replace("&", "")
             .split(" ")
