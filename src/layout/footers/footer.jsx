@@ -125,8 +125,8 @@ const Footer = ({
                         </div>
                         <div className="tp-footer-contact-content">
                           <p>
-                            <a href="mailto:contact@thstore.com">
-                              contact@thstore.com
+                            <a href="mailto:contact@eshop.com">
+                              contact@eshop.com
                             </a>
                           </p>
                         </div>

@@ -1,5 +1,5 @@
 {
-  "name": "thstore-client",
+  "name": "eshop-client",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -19,6 +19,7 @@
     "dayjs": "^1.11.7",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
+    "i18next": "^23.16.5",
     "js-cookie": "^3.0.5",
     "lucide-react": "^0.424.0",
     "next": "13.2.4",
@@ -26,6 +27,7 @@
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.9",
+    "react-i18next": "^15.1.1",
     "react-modal": "^3.16.1",
     "react-modal-video": "^2.0.0",
     "react-paginate": "^8.2.0",
@@ -41,6 +43,7 @@
     "react-use": "^17.4.0",
     "sass": "^1.59.3",
     "slick-carousel": "^1.8.1",
+    "socket.io-client": "^4.8.1",
     "swiper": "^9.1.1",
     "yup": "^1.1.1"
   },

@@ -1,11 +1,35 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userLoggedOut } from "@/redux/features/auth/authSlice";
+import { useTranslation } from "react-i18next";
 
 // language
 function Language({ active, handleActive }) {
+  const { i18n } = useTranslation();
+  const router = useRouter();
+  const [currentLang, setCurrentLang] = useState(router.locale || "en");
+
+  useEffect(() => {
+    // Kiểm tra ngôn ngữ lưu trong localStorage
+    const savedLanguage = localStorage.getItem("language") || "en";
+    if (savedLanguage !== currentLang) {
+      i18n.changeLanguage(savedLanguage);
+      setCurrentLang(savedLanguage);
+      router.push(router.pathname, router.asPath, { locale: savedLanguage });
+    }
+  }, [currentLang, i18n, router]);
+
+  const changeLanguage = (lang) => {
+    if (lang !== currentLang) {
+      i18n.changeLanguage(lang);
+      localStorage.setItem("language", lang);
+      setCurrentLang(lang);
+      router.push(router.pathname, router.asPath, { locale: lang });
+    }
+  };
+
   return (
     <div className="tp-header-top-menu-item tp-header-lang">
       <span
@@ -13,23 +37,19 @@ function Language({ active, handleActive }) {
         className="tp-header-lang-toggle"
         id="tp-header-lang-toggle"
       >
-        English
+        {currentLang === "en" ? "English" : "Vietnamese"}
       </span>
       <ul className={active === "lang" ? "tp-lang-list-open" : ""}>
-        <li>
-          <a href="#">Vietnamese</a>
+        <li onClick={() => changeLanguage("vi")}>
+          <a className={currentLang === "vi" ? "active" : ""}>Vietnamese</a>
         </li>
-        <li>
-          <a href="#">Chinese</a>
-        </li>
-        <li>
-          <a href="#">French</a>
+        <li onClick={() => changeLanguage("en")}>
+          <a className={currentLang === "en" ? "active" : ""}>English</a>
         </li>
       </ul>
     </div>
   );
 }
-
 // currency
 function Currency({ active, handleActive }) {
   return (
@@ -61,6 +81,7 @@ function ProfileSetting({ active, handleActive }) {
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const router = useRouter();
+  const { t } = useTranslation();
   // handle logout
   const handleLogout = () => {
     dispatch(userLoggedOut());
@@ -73,27 +94,27 @@ function ProfileSetting({ active, handleActive }) {
         className="tp-header-setting-toggle"
         id="tp-header-setting-toggle"
       >
-        Setting
+        {t("setting.setting")}
       </span>
       <ul className={active === "setting" ? "tp-setting-list-open" : ""}>
         <li>
-          <Link href="/profile">My Profile</Link>
+          <Link href="/profile">{t("setting.profile")}</Link>
         </li>
         <li>
-          <Link href="/wishlist">Wishlist</Link>
+          <Link href="/wishlist">{t("setting.wishlist")}</Link>
         </li>
         <li>
-          <Link href="/cart">Cart</Link>
+          <Link href="/cart">{t("setting.cart")}</Link>
         </li>
         <li>
           {!user?.name && (
             <Link href="/login" className="cursor-pointer">
-              Login
+              {t("setting.login")}
             </Link>
           )}
           {user?.name && (
             <a onClick={handleLogout} className="cursor-pointer">
-              Logout
+              {t("setting.logout")}
             </a>
           )}
         </li>

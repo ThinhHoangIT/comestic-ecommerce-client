@@ -63,7 +63,7 @@ const ContactForm = () => {
               name="email"
               id="email"
               type="email"
-              placeholder="thstore@mail.com"
+              placeholder="eshop@mail.com"
             />
           </div>
           <div className="tp-contact-input-title">

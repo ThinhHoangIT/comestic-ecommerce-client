@@ -75,7 +75,7 @@ const RegisterForm = () => {
               id="email"
               name="email"
               type="email"
-              placeholder="thstore@mail.com"
+              placeholder="eshop@mail.com"
             />
           </div>
           <div className="tp-login-input-title">

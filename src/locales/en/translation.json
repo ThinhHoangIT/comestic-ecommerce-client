@@ -1,0 +1,38 @@
+{
+  "welcome": "Welcome",
+  "language": "Language",
+  "menu": {
+    "home": "Home",
+    "shop": "Shop",
+    "coupons": "Coupons",
+    "contact": "Contact",
+    "blogs": "Blogs",
+    "electronics": "Electronics",
+    "fashion": "Fashion",
+    "beauty": "Beauty",
+    "jewelry": "Jewelry",
+    "products": "Products",
+    "shopPage": "Shop Page",
+    "onlyCategories": "Only Categories",
+    "shopGridWithSidebar": "Shop Grid With Sidebar",
+    "productDetails": "Product Details",
+    "productSimple": "Product Simple",
+    "shoppingCart": "Shop Cart",
+    "eCommerce": "E-Commerce",
+    "compare": "Compare",
+    "checkout": "Checkout",
+    "wishlist": "Wishlist",
+    "myAccount": "My Account",
+    "morePages": "More Page"
+  },
+  "setting": {
+    "setting": "Setting",
+    "login": "Login",
+    "register": "Register",
+    "forgotPassword": "Forgot Password",
+    "logout": "Logout",
+    "profile": "Profile",
+    "cart": "Cart",
+    "wishlist": "Wishlist"
+  }
+}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { mobile_menu } from "@/data/menu-data";
+import { getMobileMenu } from "@/data/menu-data";
 import ProductItem from "../products/electronics/product-item";
 import ErrorMsg from "./error-msg";
 import { HomeNewArrivalPrdLoader } from "../loader";
@@ -21,6 +21,7 @@ const instagram_data = [
 ];
 const MobileMenus = () => {
   const [isActiveMenu, setIsActiveMenu] = useState("");
+  const mobile_menu = getMobileMenu();
 
   const {
     data: products,

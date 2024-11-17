@@ -1,0 +1,38 @@
+{
+  "welcome": "Chào mừng",
+  "language": "Ngôn ngữ",
+  "menu": {
+    "home": "Nhà",
+    "shop": "Cửa hàng",
+    "coupons": "Mã giảm",
+    "contact": "LH",
+    "blogs": "Bài viết",
+    "electronics": "Điện tử",
+    "fashion": "Thời trang",
+    "beauty": "Làm đẹp",
+    "jewelry": "Trang sức",
+    "products": "Sản phẩm",
+    "shopPage": "Trang cửa hàng",
+    "onlyCategories": "Chỉ danh mục",
+    "shopGridWithSidebar": "Cửa hàng với thanh bên",
+    "productDetails": "Chi tiết sản phẩm",
+    "productSimple": "Sản phẩm cơ bản",
+    "shoppingCart": "Giỏ hàng",
+    "eCommerce": "TMDT",
+    "compare": "So sánh",
+    "checkout": "Thanh toán",
+    "wishlist": "Yêu thích",
+    "myAccount": "Tài khoản của tôi",
+    "morePages": "Trang khác"
+  },
+  "setting": {
+    "setting": "Cài đặt",
+    "login": "Đăng nhập",
+    "forgotPassword": "Quên mật khẩu",
+    "register": "Đăng ký",
+    "logout": "Đăng xuất",
+    "profile": "Hồ sơ",
+    "cart": "Giỏ hàng",
+    "wishlist": "Yêu thích"
+  }
+}

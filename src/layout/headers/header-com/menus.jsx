@@ -1,5 +1,5 @@
 import React from "react";
-import menu_data from "@/data/menu-data";
+import { getMenuData } from "@/data/menu-data";
 import Link from "next/link";
 import Image from "next/image";
 import { useGetProductTypeQuery } from "@/redux/features/productApi";
@@ -21,6 +21,8 @@ const instagram_data = [
   { id: 4, link: "https://www.instagram.com/", img: insta_6 },
 ];
 const Menus = () => {
+  const menuData = getMenuData();
+
   const {
     data: products,
     isError,
@@ -63,7 +65,7 @@ const Menus = () => {
   }
   return (
     <ul>
-      {menu_data.map((menu) =>
+      {menuData.map((menu) =>
         menu.homes ? (
           <li key={menu.id} className="has-dropdown has-mega-menu">
             <Link href={menu.link}>{menu.title}</Link>
@@ -92,23 +94,10 @@ const Menus = () => {
                   ))}
                 </div>
               </div>
-              {/* <div className="tp-product-arrival-slider fix">
-    {content}
-  </div> */}
-              {/* <OfferCouponArea/> */}
               <div className="row row-cols-1 row-cols-lg-4 row-cols-xl-4">
                 {menu.home_pages.map((home, i) => (
                   <div key={i} className="col">
-                    <div className="home-menu-item">
-                      {/* <Link href={home.link}>
-                        <div className="home-menu-thumb p-relative fix">
-                          <Image src={home.img} alt="home img" />
-                        </div>
-                        <div className="home-menu-content">
-                          <h5 className="home-menu-title">{home.title}</h5>
-                        </div>
-                      </Link> */}
-                    </div>
+                    <div className="home-menu-item"></div>
                   </div>
                 ))}
               </div>
