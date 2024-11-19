@@ -35,70 +35,24 @@ export const getMenuData = () => [
   },
   {
     id: 2,
-    products: true,
-    title: i18next.t("menu.products"),
-    link: "/shop",
-    product_pages: [
-      {
-        title: i18next.t("menu.shopPage"),
-        link: "/shop",
-        mega_menus: [
-          { title: i18next.t("menu.onlyCategories"), link: "/shop-category" },
-          { title: i18next.t("menu.shopGridWithSidebar"), link: "/shop" },
-          { title: i18next.t("menu.productDetails"), link: "/product-details" },
-        ],
-      },
-      {
-        title: i18next.t("menu.products"),
-        link: "/product-details",
-        mega_menus: [
-          { title: i18next.t("menu.productSimple"), link: "/product-details" },
-          // { title: "With Video", link: "/product-details-video" },
-          // { title: "With Countdown Timer", link: "/product-details-countdown" },
-          // { title: "Variations Swatches", link: "/product-details-swatches" },
-        ],
-      },
-      {
-        title: i18next.t("menu.eCommerce"),
-        link: "/shop",
-        mega_menus: [
-          { title: i18next.t("menu.shoppingCart"), link: "/cart" },
-          { title: i18next.t("menu.compare"), link: "/compare" },
-          { title: i18next.t("menu.wishlist"), link: "/wishlist" },
-          { title: i18next.t("menu.checkout"), link: "/checkout" },
-          { title: i18next.t("menu.myAccount"), link: "/profile" },
-        ],
-      },
-      {
-        title: i18next.t("menu.morePages"),
-        link: "/shop",
-        mega_menus: [
-          { title: i18next.t("setting.login"), link: "/login" },
-          { title: i18next.t("setting.register"), link: "/register" },
-          { title: i18next.t("setting.forgotPassword"), link: "/forgot" },
-        ],
-      },
-    ],
-  },
-  {
-    id: 3,
     sub_menu: true,
     title: i18next.t("menu.shop"),
     link: "/shop",
     sub_menus: [
       { title: "Shop", link: "/shop" },
+      { title: i18next.t("menu.onlyCategories"), link: "/shop-category" },
       { title: "Right Sidebar", link: "/shop-right-sidebar" },
       { title: "Hidden Sidebar", link: "/shop-hidden-sidebar" },
     ],
   },
   {
-    id: 4,
+    id: 3,
     single_link: true,
     title: i18next.t("menu.coupons"),
     link: "/coupon",
   },
   {
-    id: 5,
+    id: 4,
     sub_menu: true,
     title: i18next.t("menu.blogs"),
     link: "/blog",
@@ -107,11 +61,10 @@ export const getMenuData = () => [
       { title: "Blog Grid", link: "/blog-grid" },
       { title: "Blog List", link: "/blog-list" },
       { title: "Blog Details", link: "/blog-details" },
-      { title: "Blog Details Full Width", link: "/blog-details-2" },
     ],
   },
   {
-    id: 6,
+    id: 5,
     single_link: true,
     title: i18next.t("menu.contact"),
     link: "/contact",
@@ -205,7 +158,6 @@ export const getMobileMenu = () => [
       { title: "Blog Grid", link: "/blog-grid" },
       { title: "Blog List", link: "/blog-list" },
       { title: "Blog Details", link: "/blog-details" },
-      { title: "Blog Details Full Width", link: "/blog-details-2" },
     ],
   },
   {

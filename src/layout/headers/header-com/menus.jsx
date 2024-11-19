@@ -8,17 +8,16 @@ import ErrorMsg from "@/components/common/error-msg";
 import ProductItem from "@/components/products/electronics/product-item";
 
 // internal
-import insta_1 from "@assets/img/instagram/3/instagram-1.jpg";
-import insta_3 from "@assets/img/instagram/3/instagram-3.jpg";
-import insta_5 from "@assets/img/instagram/3/instagram-5.jpg";
-import insta_6 from "@assets/img/instagram/3/instagram-6.jpg";
+import cosmetic from "@assets/img/instagram/3/instagram-6.jpg";
+import fashion from "@assets/img/instagram/2/insta.jpg";
+import jewelry from "@assets/img/instagram/4/instagram-4.jpg";
+import electronics from "@assets/img/instagram/5/insta.jpg";
 
-// instagram data
-const instagram_data = [
-  { id: 1, link: "https://www.instagram.com/", img: insta_1 },
-  { id: 2, link: "https://www.instagram.com/", img: insta_3 },
-  { id: 3, link: "https://www.instagram.com/", img: insta_5 },
-  { id: 4, link: "https://www.instagram.com/", img: insta_6 },
+const home_data = [
+  { id: 1, link: "/", img: cosmetic },
+  { id: 2, link: "/home-2", img: fashion },
+  { id: 3, link: "/home-3", img: jewelry },
+  { id: 4, link: "/home-4", img: electronics },
 ];
 const Menus = () => {
   const menuData = getMenuData();
@@ -72,7 +71,7 @@ const Menus = () => {
             <div className="home-menu tp-submenu tp-mega-menu">
               <div className="container-fluid">
                 <div className="row row-cols-lg-4 row-cols-sm-2 row-cols-1 gx-2 gy-2 gy-lg-0">
-                  {instagram_data.map((item) => (
+                  {home_data.map((item) => (
                     <div className="col" key={item.id}>
                       <div className="tp-instagram-item-2">
                         <Image
@@ -81,13 +80,9 @@ const Menus = () => {
                           style={{ width: "100%", height: "100%" }}
                         />
                         <div className="tp-instagram-icon-2">
-                          <a
-                            href={item.link}
-                            target="_blank"
-                            className="popup-image"
-                          >
-                            <i className="fa-brands fa-instagram"></i>
-                          </a>
+                          <Link href={item.link} className="popup-image">
+                            <i class="fa-regular fa-house"></i>
+                          </Link>
                         </div>
                       </div>
                     </div>

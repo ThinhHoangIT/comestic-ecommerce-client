@@ -101,12 +101,6 @@ function ProfileSetting({ active, handleActive }) {
           <Link href="/profile">{t("setting.profile")}</Link>
         </li>
         <li>
-          <Link href="/wishlist">{t("setting.wishlist")}</Link>
-        </li>
-        <li>
-          <Link href="/cart">{t("setting.cart")}</Link>
-        </li>
-        <li>
           {!user?.name && (
             <Link href="/login" className="cursor-pointer">
               {t("setting.login")}

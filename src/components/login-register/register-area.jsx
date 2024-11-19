@@ -15,7 +15,7 @@ const RegisterArea = () => {
             <div className="col-xl-6 col-lg-8">
               <div className="tp-login-wrapper">
                 <div className="tp-login-top text-center mb-30">
-                  <h3 className="tp-login-title">Sign Up TH-Store.</h3>
+                  <h3 className="tp-login-title">Sign Up E-Shop.</h3>
                   <p>
                     Already have an account?{" "}
                     <span>
