@@ -33,7 +33,7 @@ const slider_data = [
   {
     id: 1,
     bg: slider_bg_1,
-    subtitle: "Winter Collection 2023",
+    subtitle: "Winter Collection 2024",
     title: "Be your kind of beauty",
   },
   {
@@ -86,7 +86,7 @@ const BeautyBanner = () => {
                 <div className="row align-items-center">
                   <div className="col-xl-6 col-lg-6 col-md-8">
                     <div className="tp-slider-content-3">
-                      <span>Winter Collection 2023</span>
+                      <span>Winter Collection 2024</span>
                       <h3 className="tp-slider-title-3">
                         Be your kind of beauty
                       </h3>

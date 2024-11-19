@@ -15,13 +15,13 @@ import thumb_shape_2 from "@assets/img/slider/2/shape/shape-3.png";
 const slider_data = [
   {
     id: 1,
-    subtitle: "New Arrivals 2023",
+    subtitle: "New Arrivals 2024",
     title: "The Clothing Collection",
     img: slider_img_1,
   },
   {
     id: 2,
-    subtitle: "Best Selling 2023",
+    subtitle: "Best Selling 2024",
     title: "The Summer Collection",
     img: slider_img_2,
   },

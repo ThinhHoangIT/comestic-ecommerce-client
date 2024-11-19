@@ -8,7 +8,6 @@ import BlogItem from "./blog-item";
 // blog items
 const blog_items = blogData.filter((b) => b.blog === "blog-postbox");
 
-
 const BlogPostboxArea = () => {
   const [filteredRows, setFilteredRows] = useState(blog_items);
   const [currPage, setCurrPage] = useState(1);
@@ -27,9 +26,11 @@ const BlogPostboxArea = () => {
           <div className="row">
             <div className="col-xl-9 col-lg-8">
               <div className="tp-postbox-wrapper pr-50">
-                {filteredRows.slice(pageStart, pageStart + countOfPage).map((item) => (
-                  <BlogItem key={item.id} item={item} />
-                ))}
+                {filteredRows
+                  .slice(pageStart, pageStart + countOfPage)
+                  .map((item) => (
+                    <BlogItem key={item.id} item={item} />
+                  ))}
                 <div className="tp-blog-pagination mt-50">
                   <div className="tp-pagination">
                     <Pagination

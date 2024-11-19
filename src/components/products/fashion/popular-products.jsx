@@ -84,11 +84,11 @@ const PopularProducts = () => {
       >
         {product_items.map((item) => (
           <SwiperSlide
-            key={item._id}
+            key={item.id}
             className="tp-category-item-2 p-relative z-index-1 text-center"
           >
             <div className="tp-category-thumb-2">
-              <Link href={`/product-details/${item._id}`}>
+              <Link href={`/product-details/${item.id}`}>
                 <Image
                   src={item.img}
                   alt="product-img"
@@ -100,12 +100,12 @@ const PopularProducts = () => {
             <div className="tp-category-content-2">
               <span>From ${item.price}</span>
               <h3 className="tp-category-title-2">
-                <Link href={`/product-details/${item._id}`}>
-                  {item.title.substring(0, 15)}
+                <Link href={`/product-details/${item.id}`}>
+                  {item.name.substring(0, 15)}
                 </Link>
               </h3>
               <div className="tp-category-btn-2">
-                {cart_products.some((prd) => prd._id === item._id) ? (
+                {cart_products.some((prd) => prd.id === item.id) ? (
                   <Link
                     href="/cart"
                     className="tp-btn tp-btn-border cursor-pointer"

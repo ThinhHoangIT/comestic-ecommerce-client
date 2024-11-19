@@ -1,16 +1,16 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper";
 // internal
-import { ArrowRightLong, TextShapeLine } from '@/svg';
-import { useGetProductTypeQuery } from '@/redux/features/productApi';
-import ProductItem from './product-item';
-import ErrorMsg from '@/components/common/error-msg';
-import trending_banner from '@assets/img/product/trending/banner/trending-banner.jpg';
-import { HomeTwoNewPrdPrdLoader } from '@/components/loader';
-import Link from 'next/link';
+import { ArrowRightLong, TextShapeLine } from "@/svg";
+import { useGetProductTypeQuery } from "@/redux/features/productApi";
+import ProductItem from "./product-item";
+import ErrorMsg from "@/components/common/error-msg";
+import trending_banner from "@assets/img/product/trending/banner/trending-banner.jpg";
+import { HomeTwoNewPrdPrdLoader } from "@/components/loader";
+import Link from "next/link";
 
-// slider setting 
+// slider setting
 const slider_setting = {
   slidesPerView: 2,
   spaceBetween: 24,
@@ -19,31 +19,32 @@ const slider_setting = {
     clickable: true,
   },
   breakpoints: {
-    '1200': {
+    1200: {
       slidesPerView: 2,
     },
-    '768': {
+    768: {
       slidesPerView: 2,
     },
-    '576': {
+    576: {
       slidesPerView: 2,
     },
-    '0': {
+    0: {
       slidesPerView: 1,
     },
-  }
-}
+  },
+};
 
 const TrendingProducts = () => {
-  const { data: products, isError, isLoading } =
-    useGetProductTypeQuery({ type: 'fashion', query: `new=true` });
+  const {
+    data: products,
+    isError,
+    isLoading,
+  } = useGetProductTypeQuery({ type: "fashion", query: `new=true` });
   // decide what to render
   let content = null;
 
   if (isLoading) {
-    content = (
-      <HomeTwoNewPrdPrdLoader loading={isLoading}/>
-    );
+    content = <HomeTwoNewPrdPrdLoader loading={isLoading} />;
   }
   if (!isLoading && isError) {
     content = <ErrorMsg msg="There was an error" />;
@@ -52,18 +53,22 @@ const TrendingProducts = () => {
     content = <ErrorMsg msg="No Products found!" />;
   }
   if (!isLoading && !isError && products?.data?.length > 0) {
-    const product_items = products.data.slice(0,5);
+    const product_items = products.data.slice(0, 5);
     content = (
-      <Swiper {...slider_setting} modules={[Pagination]} className="tp-trending-slider-active swiper-container">
+      <Swiper
+        {...slider_setting}
+        modules={[Pagination]}
+        className="tp-trending-slider-active swiper-container"
+      >
         {product_items.map((item) => {
           return (
-            <SwiperSlide key={item._id} className="tp-trending-item">
+            <SwiperSlide key={item.id} className="tp-trending-item">
               <ProductItem product={item} style_2={true} />
             </SwiperSlide>
-          )
+          );
         })}
       </Swiper>
-    )
+    );
   }
   return (
     <>
@@ -87,13 +92,21 @@ const TrendingProducts = () => {
             </div>
             <div className="col-xl-4 col-lg-5 col-md-8 col-sm-10">
               <div className="tp-trending-banner p-relative ml-35">
-                <div className="tp-trending-banner-thumb w-img include-bg" style={{backgroundImage:`url(${trending_banner.src})`}}></div>
+                <div
+                  className="tp-trending-banner-thumb w-img include-bg"
+                  style={{ backgroundImage: `url(${trending_banner.src})` }}
+                ></div>
                 <div className="tp-trending-banner-content">
                   <h3 className="tp-trending-banner-title">
-                    <Link href="/shop">Short Sleeve Tunic <br /> Tops Casual Swing</Link>
+                    <Link href="/shop">
+                      Short Sleeve Tunic <br /> Tops Casual Swing
+                    </Link>
                   </h3>
                   <div className="tp-trending-banner-btn">
-                    <Link href="/shop" className="tp-btn tp-btn-border tp-btn-border-white tp-btn-border-white-sm">
+                    <Link
+                      href="/shop"
+                      className="tp-btn tp-btn-border tp-btn-border-white tp-btn-border-white-sm"
+                    >
                       Explore More
                       <ArrowRightLong />
                     </Link>

@@ -63,13 +63,10 @@ function Currency({ active, handleActive }) {
       </span>
       <ul className={active === "currency" ? "tp-currency-list-open" : ""}>
         <li>
-          <a href="#">EUR</a>
+          <a href="#">USD</a>
         </li>
         <li>
           <a href="#">VND</a>
-        </li>
-        <li>
-          <a href="#">YUAN</a>
         </li>
       </ul>
     </div>
@@ -97,21 +94,22 @@ function ProfileSetting({ active, handleActive }) {
         {t("setting.setting")}
       </span>
       <ul className={active === "setting" ? "tp-setting-list-open" : ""}>
-        <li>
-          <Link href="/profile">{t("setting.profile")}</Link>
-        </li>
-        <li>
-          {!user?.name && (
-            <Link href="/login" className="cursor-pointer">
-              {t("setting.login")}
-            </Link>
-          )}
-          {user?.name && (
-            <a onClick={handleLogout} className="cursor-pointer">
-              {t("setting.logout")}
-            </a>
-          )}
-        </li>
+        {user?.name ? (
+          <>
+            <li>
+              <a onClick={handleLogout} className="cursor-pointer">
+                {t("setting.logout")}
+              </a>
+            </li>
+            <li>
+              <Link href="/profile">{t("setting.profile")}</Link>
+            </li>
+          </>
+        ) : (
+          <Link href="/login" className="cursor-pointer">
+            {t("setting.login")}
+          </Link>
+        )}
       </ul>
     </div>
   );

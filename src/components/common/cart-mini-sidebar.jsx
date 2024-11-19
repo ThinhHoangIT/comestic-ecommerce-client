@@ -90,7 +90,7 @@ const CartMiniSidebar = () => {
                     </div>
                     <a
                       onClick={() =>
-                        handleRemovePrd({ title: item.name, id: item.id })
+                        handleRemovePrd({ name: item.name, id: item.id })
                       }
                       className="cartmini__del cursor-pointer"
                     >

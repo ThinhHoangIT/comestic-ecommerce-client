@@ -39,7 +39,7 @@ const ElectronicCategory = () => {
   if (!isLoading && !isError && categories?.data?.length > 0) {
     const category_items = categories.data;
     content = category_items.map((item) => (
-      <div className="col" key={item._id}>
+      <div className="col" key={item.id}>
         <div className="tp-product-category-item text-center mb-40">
           <div className="tp-product-category-thumb fix">
             <a
@@ -63,7 +63,7 @@ const ElectronicCategory = () => {
                 {item.name}
               </a>
             </h3>
-            <p>{item.products.length} Product</p>
+            <p>{item.productCount} Product</p>
           </div>
         </div>
       </div>

@@ -1,15 +1,15 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper';
-import { Rating } from 'react-simple-star-rating';
-import Link from 'next/link';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper";
+import { Rating } from "react-simple-star-rating";
+import Link from "next/link";
 // internal
-import { useGetProductTypeQuery } from '@/redux/features/productApi';
-import { ArrowRightLong, NextLongArr, PrevLongArr, TextShapeLine } from '@/svg';
-import ErrorMsg from '@/components/common/error-msg';
-import { HomeTwoFeaturedPrdLoader } from '@/components/loader';
+import { useGetProductTypeQuery } from "@/redux/features/productApi";
+import { ArrowRightLong, NextLongArr, PrevLongArr, TextShapeLine } from "@/svg";
+import ErrorMsg from "@/components/common/error-msg";
+import { HomeTwoFeaturedPrdLoader } from "@/components/loader";
 
-// slider setting 
+// slider setting
 const slider_setting = {
   slidesPerView: 3,
   spaceBetween: 10,
@@ -18,34 +18,35 @@ const slider_setting = {
     prevEl: ".tp-featured-slider-button-prev",
   },
   breakpoints: {
-    '1200': {
+    1200: {
       slidesPerView: 3,
     },
-    '992': {
+    992: {
       slidesPerView: 3,
     },
-    '768': {
+    768: {
       slidesPerView: 2,
     },
-    '576': {
+    576: {
       slidesPerView: 1,
     },
-    '0': {
+    0: {
       slidesPerView: 1,
     },
-  }
-}
+  },
+};
 
 const WeeksFeatured = () => {
-  const { data: products, isError, isLoading } =
-    useGetProductTypeQuery({ type: 'fashion', query: `featured=true` });
+  const {
+    data: products,
+    isError,
+    isLoading,
+  } = useGetProductTypeQuery({ type: "fashion", query: `featured=true` });
   // decide what to render
   let content = null;
 
   if (isLoading) {
-    content = (
-      <HomeTwoFeaturedPrdLoader loading={isLoading} />
-    );
+    content = <HomeTwoFeaturedPrdLoader loading={isLoading} />;
   }
   if (!isLoading && isError) {
     content = <ErrorMsg msg="There was an error" />;
@@ -56,42 +57,77 @@ const WeeksFeatured = () => {
   if (!isLoading && !isError && products?.data?.length > 0) {
     const product_items = products.data;
     content = (
-      <Swiper {...slider_setting} modules={[Navigation]} className="tp-featured-slider-active swiper-container">
+      <Swiper
+        {...slider_setting}
+        modules={[Navigation]}
+        className="tp-featured-slider-active swiper-container"
+      >
         {product_items.map((item) => {
-          const {_id, img, title, price, discount, reviews } = item || {};
+          const { id, img, name, price, discount, reviewData } = item || {};
           return (
-            <SwiperSlide key={item._id} className="tp-featured-item white-bg p-relative z-index-1">
-              <div className="tp-featured-thumb include-bg" style={{ backgroundImage: `url(${img})` }} data-background="assets/img/product/slider/product-slider-1.jpg"></div>
+            <SwiperSlide
+              key={item.id}
+              className="tp-featured-item white-bg p-relative z-index-1"
+            >
+              <div
+                className="tp-featured-thumb include-bg"
+                style={{ backgroundImage: `url(${img})` }}
+                data-background="assets/img/product/slider/product-slider-1.jpg"
+              ></div>
               <div className="tp-featured-content">
                 <h3 className="tp-featured-title">
-                  <Link href={`/product-details/${_id}`}>{title}</Link>
+                  <Link href={`/product-details/${id}`}>{name}</Link>
                 </h3>
                 <div className="tp-featured-price-wrapper">
                   {discount > 0 ? (
                     <>
-                      <span className="tp-featured-price new-price">${price}</span>
+                      <span className="tp-featured-price new-price">
+                        ${price}
+                      </span>
                       <span className="tp-featured-price old-price">
-                        {" "} $ {(Number(price) - (Number(price) * Number(discount)) / 100).toFixed(2)}
+                        {" "}
+                        ${" "}
+                        {(
+                          Number(price) -
+                          (Number(price) * Number(discount)) / 100
+                        ).toFixed(2)}
                       </span>
                     </>
                   ) : (
-                    <span className="tp-featured-price new-price">${price}</span>
+                    <span className="tp-featured-price new-price">
+                      ${price}
+                    </span>
                   )}
                 </div>
                 <div className="tp-product-rating-icon tp-product-rating-icon-2">
-                  <Rating allowFraction size={16} initialValue={reviews && reviews.length > 0 ? reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length : 0} readonly={true} />
+                  <Rating
+                    allowFraction
+                    size={16}
+                    initialValue={
+                      reviewData && reviewData.length > 0
+                        ? reviewData.reduce(
+                            (acc, review) => acc + review.rating,
+                            0
+                          ) / reviewData.length
+                        : 0
+                    }
+                    readonly={true}
+                  />
                 </div>
                 <div className="tp-featured-btn">
-                  <Link href={`/product-details/${_id}`} className="tp-btn tp-btn-border tp-btn-border-sm">Shop Now
-                    {" "}<ArrowRightLong />
+                  <Link
+                    href={`/product-details/${id}`}
+                    className="tp-btn tp-btn-border tp-btn-border-sm"
+                  >
+                    Shop Now <ArrowRightLong />
                   </Link>
                 </div>
               </div>
             </SwiperSlide>
-          )
+          );
         })}
       </Swiper>
-    )
+    );
   }
   return (
     <section className="tp-featured-slider-area grey-bg-6 fix pt-95 pb-120">

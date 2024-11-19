@@ -111,9 +111,7 @@ const OffCanvas = ({
                   }`}
                 >
                   <li>USD</li>
-                  <li>ERU</li>
-                  <li>BDT </li>
-                  <li>INR</li>
+                  <li>VND</li>
                 </ul>
               </div>
               <div className="offcanvas__select language">
@@ -134,10 +132,8 @@ const OffCanvas = ({
                         isLanguageActive ? "tp-lang-list-open" : ""
                       }`}
                     >
-                      <li>Spanish</li>
-                      <li>Portugese</li>
-                      <li>American</li>
-                      <li>Canada</li>
+                      <li>Vietnamese</li>
+                      <li>English</li>
                     </ul>
                   </div>
                 </div>

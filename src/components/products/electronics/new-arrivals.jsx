@@ -66,7 +66,7 @@ const NewArrivals = () => {
         className="tp-product-arrival-active swiper-container"
       >
         {product_items.map((item) => (
-          <SwiperSlide key={item._id}>
+          <SwiperSlide key={item.id}>
             <ProductItem product={item} />
           </SwiperSlide>
         ))}

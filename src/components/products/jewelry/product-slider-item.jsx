@@ -9,19 +9,18 @@ import { add_to_wishlist } from "@/redux/features/wishlist-slice";
 import { notifyError } from "@/utils/toast";
 
 const ProductSliderItem = ({ product }) => {
-  const { _id, title, price, img,status } = product || {};
+  const { id, name, price, img, status } = product || {};
   const { cart_products } = useSelector((state) => state.cart);
   const { wishlist } = useSelector((state) => state.wishlist);
-  const isAddedToCart = cart_products.some((prd) => prd._id === _id);
-  const isAddedToWishlist = wishlist.some((prd) => prd._id === _id);
+  const isAddedToCart = cart_products.some((prd) => prd.id === id);
+  const isAddedToWishlist = wishlist.some((prd) => prd.id === id);
   const dispatch = useDispatch();
 
   // handle add product
   const handleAddProduct = (prd) => {
-    if (prd.status === 'out-of-stock') {
-      notifyError(`This product out-of-stock`)
-    }
-    else {
+    if (prd.status === "out-of-stock") {
+      notifyError(`This product out-of-stock`);
+    } else {
       dispatch(add_cart_product(prd));
     }
   };
@@ -44,7 +43,9 @@ const ProductSliderItem = ({ product }) => {
           {isAddedToCart ? (
             <Link
               href="/cart"
-              className={`tp-product-action-btn-3 ${isAddedToCart ? 'active' : ''} tp-product-add-cart-btn`}
+              className={`tp-product-action-btn-3 ${
+                isAddedToCart ? "active" : ""
+              } tp-product-add-cart-btn`}
             >
               <Cart />
               <span className="tp-product-tooltip">View Cart</span>
@@ -53,7 +54,9 @@ const ProductSliderItem = ({ product }) => {
             <button
               type="button"
               onClick={() => handleAddProduct(product)}
-              className={`tp-product-action-btn-3 ${isAddedToCart ? 'active' : ''} tp-product-add-cart-btn`}
+              className={`tp-product-action-btn-3 ${
+                isAddedToCart ? "active" : ""
+              } tp-product-add-cart-btn`}
             >
               <Cart />
               <span className="tp-product-tooltip">Add to Cart</span>
@@ -70,7 +73,9 @@ const ProductSliderItem = ({ product }) => {
           <button
             type="button"
             onClick={() => handleWishlistProduct(product)}
-            className={`tp-product-action-btn-3 ${isAddedToWishlist ? 'active' : ''} tp-product-add-to-wishlist-btn`}
+            className={`tp-product-action-btn-3 ${
+              isAddedToWishlist ? "active" : ""
+            } tp-product-add-to-wishlist-btn`}
           >
             <Wishlist />
             <span className="tp-product-tooltip">Add To Wishlist</span>
@@ -79,18 +84,21 @@ const ProductSliderItem = ({ product }) => {
       </div>
       <div className="tp-category-content-4">
         <h3 className="tp-category-title-4">
-          <Link href={`/product-details/${_id}`}>{title}</Link>
+          <Link href={`/product-details/${id}`}>{name}</Link>
         </h3>
         <div className="tp-category-price-wrapper-4">
           <span className="tp-category-price-4">${price.toFixed(2)}</span>
           <div className="tp-category-add-to-cart">
             {isAddedToCart ? (
               <Link href="/cart" className="tp-category-add-to-cart-4">
-                <AddCart />{" "}View Cart
+                <AddCart /> View Cart
               </Link>
             ) : (
-              <button onClick={() => handleAddProduct(product)} className="tp-category-add-to-cart-4">
-                <AddCart />{" "}Add to Cart
+              <button
+                onClick={() => handleAddProduct(product)}
+                className="tp-category-add-to-cart-4"
+              >
+                <AddCart /> Add to Cart
               </button>
             )}
           </div>

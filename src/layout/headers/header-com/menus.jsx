@@ -16,8 +16,8 @@ import electronics from "@assets/img/instagram/5/insta.jpg";
 const home_data = [
   { id: 1, link: "/", img: cosmetic },
   { id: 2, link: "/home-2", img: fashion },
-  { id: 3, link: "/home-3", img: jewelry },
-  { id: 4, link: "/home-4", img: electronics },
+  { id: 3, link: "/home-3", img: electronics },
+  { id: 4, link: "/home-4", img: jewelry },
 ];
 const Menus = () => {
   const menuData = getMenuData();
@@ -81,7 +81,7 @@ const Menus = () => {
                         />
                         <div className="tp-instagram-icon-2">
                           <Link href={item.link} className="popup-image">
-                            <i class="fa-regular fa-house"></i>
+                            <i className="fa-regular fa-house"></i>
                           </Link>
                         </div>
                       </div>

@@ -11,7 +11,7 @@ const PrdCategoryList = () => {
     isError,
     isLoading,
   } = useGetProductTypeCategoryQuery("electronics");
-  const router = useRouter()
+  const router = useRouter();
 
   // handle category route
   const handleCategoryRoute = (title) => {
@@ -21,25 +21,30 @@ const PrdCategoryList = () => {
         .replace("&", "")
         .split(" ")
         .join("-")}`
-    )
-  }
+    );
+  };
   // decide what to render
   let content = null;
 
   if (isLoading) {
-    content = <CategoryListLoader loading={isLoading}/>;
+    content = <CategoryListLoader loading={isLoading} />;
   }
   if (!isLoading && isError) {
     content = <ErrorMsg msg="There was an error" />;
   }
-  if (!isLoading && !isError && categories?.result?.length === 0) {
+  if (!isLoading && !isError && categories?.data?.length === 0) {
     content = <ErrorMsg msg="No Category found!" />;
   }
-  if (!isLoading && !isError && categories?.result?.length > 0) {
-    const category_items = categories.result;
+  if (!isLoading && !isError && categories?.data?.length > 0) {
+    const category_items = categories.data;
     content = category_items.map((item) => (
-      <li key={item._id}>
-        <a onClick={()=>handleCategoryRoute(item.parent)} className="cursor-pointer">{item.parent}</a>
+      <li key={item.id}>
+        <a
+          onClick={() => handleCategoryRoute(item.name)}
+          className="cursor-pointer"
+        >
+          {item.name}
+        </a>
       </li>
     ));
   }

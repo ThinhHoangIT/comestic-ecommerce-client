@@ -70,7 +70,7 @@ const PopularProducts = () => {
         className="tp-category-slider-active-4 swiper-container mb-70"
       >
         {product_items.map((item) => (
-          <SwiperSlide key={item._id}>
+          <SwiperSlide key={item.id}>
             <ProductSliderItem product={item} />
           </SwiperSlide>
         ))}

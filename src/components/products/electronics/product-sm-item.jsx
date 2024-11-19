@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Rating } from "react-simple-star-rating";
 
 const ProductSmItem = ({ product }) => {
-  const {_id, img, category, title,price, reviews } = product || {};
+  const { id, img, category, name, price, reviews } = product || {};
   const [ratingVal, setRatingVal] = useState(0);
 
   useEffect(() => {
@@ -21,13 +21,8 @@ const ProductSmItem = ({ product }) => {
   return (
     <div className="tp-product-sm-item d-flex align-items-center">
       <div className="tp-product-thumb mr-25 fix">
-        <Link href={`/product-details/${_id}`}>
-          <Image
-            src={img}
-            alt="product img"
-            width={140}
-            height={140}
-          />
+        <Link href={`/product-details/${id}`}>
+          <Image src={img} alt="product img" width={140} height={140} />
         </Link>
       </div>
       <div className="tp-product-sm-content">
@@ -35,14 +30,19 @@ const ProductSmItem = ({ product }) => {
           <a href="#">{category?.name}</a>
         </div>
         <h3 className="tp-product-title">
-          <Link href={`/product-details/${_id}`}>{title}</Link>
+          <Link href={`/product-details/${id}`}>{name}</Link>
         </h3>
         <div className="tp-product-rating d-sm-flex align-items-center">
           <div className="tp-product-rating-icon">
-            <Rating allowFraction size={16} initialValue={ratingVal} readonly={true} />
+            <Rating
+              allowFraction
+              size={16}
+              initialValue={ratingVal}
+              readonly={true}
+            />
           </div>
           <div className="tp-product-rating-text">
-          ({reviews && reviews.length > 0 ? reviews.length : 0} Review)
+            ({reviews && reviews.length > 0 ? reviews.length : 0} Review)
           </div>
         </div>
         <div className="tp-product-price-wrapper">
