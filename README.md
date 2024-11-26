@@ -1,9 +1,9 @@
-# E-Shop - Beauty & Cosmetics – Full Stack eCommerce Web Application + Admin Panel
+# E-Shop - Cosmetics - Fashion - Technologies - Jewelry – Full Stack eCommerce Web Application + Admin Panel
 
 ![E-Shop Image Banner](https://res.cloudinary.com/dfmwnhbap/image/upload/v1727857701/olu6tel5ztfty5qapien.png)
 )
 
-Beauty & Cosmetics is a powerful and modern full stack eCommerce web application built using Next.js, Koa, MongoDB with Mongoose, Redux Toolkit, RTK Query, Stripe payment method, Bootstrap 5, and Sass. It includes a feature-rich admin panel for easy management and control of your online store.
+E-Shop is a powerful and modern full-stack eCommerce web application built using Next.js, Koa, MongoDB with Mongoose, Redux Toolkit, RTK Query, Stripe payment method, Bootstrap 5, and Sass. It includes a feature-rich admin panel for easy management and control of your online store.
 
 ## Features Overview
 
@@ -16,6 +16,8 @@ Beauty & Cosmetics is a powerful and modern full stack eCommerce web application
 - **Redux Toolkit:** Manage state effortlessly with Redux Toolkit, providing a convenient and efficient way to handle state in your application.
 - **RTK Query:** RTK Query is a powerful data fetching and caching tool, ensuring efficient data retrieval for a smoother user experience.
 - **Typescript + Next.js App Directory:** E-Shop leverages TypeScript in combination with Next.js, enhancing code reliability and maintainability.
+- **i18next:** Easily add multilingual support to your application with i18next, offering seamless localization and internationalization features..
+- **websockets:** Enable real-time communication between the server and clients using WebSockets, ensuring dynamic updates and live data synchronization.
 - **Form Validation:** Ensure data accuracy and consistency with form validation capabilities.
 - **Bootstrap 5 (latest Version) Framework:** Bootstrap is a popular HTML, CSS, and JS framework for responsive, mobile-first projects.
 - **Responsive Layout Design:** E-Shop is fully responsive across all devices, providing a seamless experience for your customers.
@@ -68,7 +70,7 @@ To get started with E-Shop, follow these steps:
 1. Clone the repository:
 
    ```bash
-   https://github.com/ThinhHoangIT/comestic-ecommerce-client.git
+   https://github.com/ThinhHoangIT/multi-ecommerce-client.git
    ```
 
 2. Install dependencies:
@@ -95,16 +97,12 @@ To get started with E-Shop, follow these steps:
 
 ## Client Side Live Link
 
-[E-Shop Client Side Live Link](https://comestic-ecommerce-client.vercel.app/)
+[E-Shop Client Side Live Link](https://github.com/ThinhHoangIT/multi-ecommerce-client)
 
-## Server Side Live Link
+## Admin Side Live Link
 
-[E-Shop Server Side Live Link](https://github.com/ThinhHoangIT/comestic-ecommerce-client.git)
-
-## Client Side Repo
-
-[E-Shop Client Side Repo](https://github.com/ThinhHoangIT/comestic-ecommerce-client.git)
+[E-Shop Server Side Live Link](https://github.com/ThinhHoangIT/admin-ecommerce.git)
 
 ## Server Side Repo
 
-[E-Shop Server Side Repo](https://github.com/ThinhHoangIT/cosmetic-backend.git)
+[E-Shop Server Side Repo](https://github.com/ThinhHoangIT/multi-backend.git)
